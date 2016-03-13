@@ -36,6 +36,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/articles') }}">Articles</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -60,9 +61,20 @@
         </div>
     </nav>
 
-    @yield('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">   
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScripts -->
     <script src="{{ url('js/all.js') }}"></script>
+
+    @stack('scripts')
+    
 </body>
 </html>

@@ -22,4 +22,10 @@ elixir(function(mix) {
     	'jquery.min.js',
     	'bootstrap.min.js',
     ])
+
+    mix.scripts([
+    	'delete-confirmation.js'
+    ],
+    'public/js/delete-confirmation.js'
+    )
 });
