@@ -4,30 +4,27 @@
 <div class="panel-heading">
     List of Articles
     <div class="pull-right">
-        <a href="{{ url('articles/create') }}" class="btn btn-xs btn-default"><b>+ New</b></a>
+        <a href="{{ url('articles/create') }}" class="btn btn-xs btn-default"><b>Create</b></a>
     </div>
 </div>
 
+<div class="panel-body">
 @if(!$articles->isEmpty())
+  
 <table class="table">
     <thead>
-        <th>#</th>
         <th>Title</th>
         <th>Text</th>
         <th></th>
     </thead>
     <tbody>
-        @foreach($articles as $key => $article)
+        @foreach($articles as $article)
         <tr>
-            <td>{{ $key+1 }}</td>
-            <td>
-                <a href="{{ url('articles/'.$article->id)}}">
-                    {{ $article->title }}
-                </a>
-            </td>
+            <td>{{ $article->title }}</td>
             <td>{{ $article->text }}</td>
             <td>
                 <div class="pull-right">
+                    <a href="{{ url('articles/'.$article->id) }}" class="btn btn-xs btn-primary">Show</a>
                     <a href="{{ url('articles/'.$article->id.'/edit') }}" class="btn btn-xs btn-warning">Edit</a>
                     <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirmation" data-id="{{ $article->id }}">
                       Delete
@@ -39,12 +36,11 @@
   </tbody>
 </table>
 @else
-<div class="panel-body">
     There is nothing yet.
     Why don't you 
-    <a href="{{ url('articles/create') }}">make one?</a>
-</div>
+    <a href="{{ url('articles/create') }}">create one?</a>
 @endif
+</div>
 @include('articles._delete_confirmation_modal')
 @endsection
 

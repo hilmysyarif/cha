@@ -7,15 +7,16 @@
       <div class="modal-footer">
         <form method="POST">
 
-            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
 
-            {{ csrf_field() }}
-            {{ method_field('DELETE') }}
-            
-            <button type="submit" class="btn btn-danger">
-                Yes</span>
-            </button>
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+          
+          <button type="submit" class="btn btn-danger">
+            Yes</span>
+          </button>
         </form>
+
       </div>
     </div>
   </div>

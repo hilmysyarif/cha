@@ -10,8 +10,9 @@
     <link href="{{ url('favicon.png') }}" rel="icon" type="image/png">
 
     <!-- Styles -->
-    <link href="{{ url('css/all.css') }}" rel="stylesheet">
+    <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
 
+    @stack('styles')
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">
@@ -43,18 +44,18 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}">Logout</a></li>
-                            </ul>
-                        </li>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/logout') }}">Logout</a></li>
+                        </ul>
+                    </li>
                     @endif
                 </ul>
             </div>
@@ -64,15 +65,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">   
+                <div class="panel panel-default" id="app">   
                     @yield('content')
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Template -->
+    @yield('template')    
+
     <!-- JavaScripts -->
-    <script src="{{ url('js/all.js') }}"></script>
+    <script src="{{ url('js/jquery.min.js') }}"></script>
+    <script src="{{ url('js/bootstrap.min.js') }}"></script>
 
     @stack('scripts')
     

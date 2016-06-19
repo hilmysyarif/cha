@@ -12,20 +12,5 @@ var elixir = require('laravel-elixir')
  */
 
 elixir(function(mix) {
-    // mix.sass('app.scss');
-
-    mix.styles([
-        'bootstrap.min.css'
-    ])
-
-    mix.scripts([
-    	'jquery.min.js',
-    	'bootstrap.min.js',
-    ])
-
-    mix.scripts([
-    	'delete-confirmation.js'
-    ],
-    'public/js/delete-confirmation.js'
-    )
+	
 });

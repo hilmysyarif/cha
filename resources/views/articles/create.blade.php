@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="panel-heading">
-    New article
+    Create article
     <div class="pull-right">
         <a href="{{ url('articles') }}" class="btn btn-xs btn-default">Back</a>
     </div>
@@ -26,9 +26,7 @@
         <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
             <label class="control-label">Text</label>
 
-            <textarea class="form-control" rows="9" name="text">
-                {{ old('text') }}
-            </textarea>
+            <textarea class="form-control" rows="9" name="text">{{ old('text') }}</textarea>
 
             @if ($errors->has('text'))
             <span class="help-block">
@@ -39,7 +37,7 @@
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
-                Save
+                Store
             </button>
         </div>
     </form>

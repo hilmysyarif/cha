@@ -4,6 +4,9 @@
 <div class="panel-heading">
     Edit {{ $article->title }}
     <div class="pull-right">
+        <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete-confirmation" data-id="{{ $article->id }}">
+            Delete
+        </button>
         <a href="{{ url('articles') }}" class="btn btn-xs btn-default">Back</a>
     </div>
 </div>
@@ -27,9 +30,7 @@
         <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
             <label class="control-label">Text</label>
 
-            <textarea class="form-control" rows="9" name="text">
-                {{ old('text', $article->text) }}
-            </textarea>
+            <textarea class="form-control" rows="9" name="text">{{ old('text', $article->text) }}</textarea>
 
             @if ($errors->has('text'))
             <span class="help-block">
@@ -40,9 +41,18 @@
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">
-                Save
+                Update
             </button>
         </div>
     </form>
 </div>
+@include('articles._delete_confirmation_modal')
 @endsection
+
+@push('scripts')
+<script>
+    delete_url = "{{ url('articles') }}/"
+</script>
+
+<script src="{{ url('js/delete-confirmation.js') }}"></script>
+@endpush
